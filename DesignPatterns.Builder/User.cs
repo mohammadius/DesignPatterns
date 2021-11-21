@@ -1,4 +1,6 @@
-﻿public class User
+﻿namespace DesignPatterns.Builder;
+
+public class User
 {
 	public User(string firstName, string lastName, DateTime birthDate, Address address)
 	{

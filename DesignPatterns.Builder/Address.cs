@@ -1,4 +1,6 @@
-﻿public class Address
+﻿namespace DesignPatterns.Builder;
+
+public class Address
 {
 	public Address(string country, string city, int postalCode)
 	{
