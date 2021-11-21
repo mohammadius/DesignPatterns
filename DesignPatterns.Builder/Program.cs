@@ -1,6 +1,4 @@
-﻿using DesignPatterns.Builder;
-
-var user1 = new User("Mohammad", "Hashemi", new DateTime(1997, 11, 21),
+﻿var user1 = new User("Mohammad", "Hashemi", new DateTime(1997, 11, 21),
 	new Address("Iran", "Ahwaz", 12345));
 Console.WriteLine(user1);
 
