@@ -1,4 +1,6 @@
-﻿public class User
+﻿namespace DesignPatterns.Flyweight;
+
+public class User
 {
 	public string FullName { get; }
 
