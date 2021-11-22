@@ -3,12 +3,12 @@
 public class FlyweightUser
 {
 	private static readonly IList<string> _strings = new List<string>();
-	private readonly IEnumerable<int> _names;
+	private readonly int[] _names;
 	public string FullName => string.Join(' ', _names.Select(i => _strings[i]));
 
 	public FlyweightUser(string fullName)
 	{
-		_names = fullName.Split(' ').Select(GetOrAdd);
+		_names = fullName.Split(' ').Select(GetOrAdd).ToArray();
 	}
 
 	private static int GetOrAdd(string s)
