@@ -18,3 +18,9 @@ while (iterator.MoveNext())
 	Console.Write(iterator.Current.Value);
 	Console.Write(", ");
 }
+Console.WriteLine();
+foreach (var node in new BinaryTree<int>(root).InOrder)
+{
+	Console.Write(node.Value);
+	Console.Write(", ");
+}
