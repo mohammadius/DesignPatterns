@@ -41,6 +41,8 @@ public class FlyweightFormattedText
 	{
 		public int Start { get; set; }
 		public int End { get; set; }
+
+		// a bool property for each formatting (bold, italic, etc.)
 		public bool Capitalize { get; set; }
 		public bool Covers(int position) => position >= Start && position <= End;
 	}

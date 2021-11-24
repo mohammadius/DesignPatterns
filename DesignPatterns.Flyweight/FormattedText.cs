@@ -3,6 +3,8 @@
 public class FormattedText
 {
 	private readonly string _plainText;
+
+	// an array with length of the text for each formatting (bold, italic, etc.)
 	private readonly bool[] _capitalize;
 
 	public FormattedText(string plainText)
