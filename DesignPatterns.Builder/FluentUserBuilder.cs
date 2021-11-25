@@ -1,12 +1,6 @@
 ﻿namespace DesignPatterns.Builder;
 
-public class FluentUserBuilder :
-	IPostalCodeSelectionStage,
-	IFirstNameSelectionStage,
-	ILastNameSelectionStage,
-	IBirthDateSelectionStage,
-	ICountrySelectionStage,
-	ICitySelectionStage
+public class FluentUserBuilder
 {
 	private string _firstName;
 	private string _lastName;
@@ -15,79 +9,45 @@ public class FluentUserBuilder :
 	private string _city;
 	private int _postalCode;
 
-	private FluentUserBuilder()
-	{
-	}
-
-	public static IFirstNameSelectionStage CreateUser()
-	{
-		return new FluentUserBuilder();
-	}
-
-	public ILastNameSelectionStage WithFirstName(string firstName)
+	public FluentUserBuilder WithFirstName(string firstName)
 	{
 		_firstName = firstName;
 		return this;
 	}
 
-	public IBirthDateSelectionStage WithLastName(string lastName)
+	public FluentUserBuilder WithLastName(string lastName)
 	{
 		_lastName = lastName;
 		return this;
 	}
 
-	public ICountrySelectionStage WithBirthDate(DateTime birthDate)
+	public FluentUserBuilder WithBirthDate(DateTime birthDate)
 	{
 		_birthDate = birthDate;
 		return this;
 	}
 
-	public ICitySelectionStage WithCountry(string country)
+	public FluentUserBuilder WithCountry(string country)
 	{
 		_country = country;
 		return this;
 	}
 
-	public IPostalCodeSelectionStage WithCity(string city)
+	public FluentUserBuilder WithCity(string city)
 	{
 		_city = city;
 		return this;
 	}
 
-	public User WithPostalCode(int postalCode)
+	public FluentUserBuilder WithPostalCode(int postalCode)
 	{
 		_postalCode = postalCode;
+		return this;
+	}
+
+	public User Build()
+	{
 		var address = new Address(_country, _city, _postalCode);
 		return new User(_firstName, _lastName, _birthDate, address);
 	}
-}
-
-public interface IFirstNameSelectionStage
-{
-	public ILastNameSelectionStage WithFirstName(string firstName);
-}
-
-public interface ILastNameSelectionStage
-{
-	public IBirthDateSelectionStage WithLastName(string lastname);
-}
-
-public interface IBirthDateSelectionStage
-{
-	public ICountrySelectionStage WithBirthDate(DateTime birthDate);
-}
-
-public interface ICountrySelectionStage
-{
-	public ICitySelectionStage WithCountry(string country);
-}
-
-public interface ICitySelectionStage
-{
-	public IPostalCodeSelectionStage WithCity(string city);
-}
-
-public interface IPostalCodeSelectionStage
-{
-	public User WithPostalCode(int postalCode);
 }

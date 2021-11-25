@@ -2,7 +2,7 @@
 	new Address("Iran", "Ahwaz", 12345));
 Console.WriteLine(user1);
 
-var userBuilder = new SimpleFluentUserBuilder()
+var userBuilder = new FluentUserBuilder()
 	.WithFirstName("Reza")
 	.WithLastName("Hashemi")
 	.WithBirthDate(new DateTime(1994, 2, 5))
@@ -12,7 +12,7 @@ var userBuilder = new SimpleFluentUserBuilder()
 var user2 = userBuilder.Build();
 Console.WriteLine(user2);
 
-var user3 = FluentUserBuilder.CreateUser()
+var user3 = ComplicatedFluentUserBuilder.CreateUser()
 	.WithFirstName("Reza")
 	.WithLastName("Hashemi")
 	.WithBirthDate(new DateTime(1994, 2, 5))
