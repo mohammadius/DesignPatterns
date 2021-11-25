@@ -36,9 +36,9 @@ public class ComplicatedFluentUserBuilder :
 		return this;
 	}
 
-	public ICountrySelectionStage WithBirthDate(DateTime birthDate)
+	public ICountrySelectionStage WithBirthDate(int year, int month, int day)
 	{
-		_birthDate = birthDate;
+		_birthDate = new DateTime(year, month, day);
 		return this;
 	}
 
@@ -74,7 +74,7 @@ public interface ILastNameSelectionStage
 
 public interface IBirthDateSelectionStage
 {
-	public ICountrySelectionStage WithBirthDate(DateTime birthDate);
+	public ICountrySelectionStage WithBirthDate(int year, int month, int day);
 }
 
 public interface ICountrySelectionStage

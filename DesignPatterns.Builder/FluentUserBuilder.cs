@@ -21,9 +21,9 @@ public class FluentUserBuilder
 		return this;
 	}
 
-	public FluentUserBuilder WithBirthDate(DateTime birthDate)
+	public FluentUserBuilder WithBirthDate(int year, int month, int day)
 	{
-		_birthDate = birthDate;
+		_birthDate = new DateTime(year, month, day);
 		return this;
 	}
 
