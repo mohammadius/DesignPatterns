@@ -17,6 +17,6 @@ public class User
 
 	public override string ToString()
 	{
-		return $"FullName: {FirstName} {LastName}\nDate of Birth: {BirthDate:D}\nAddress: {Address}";
+		return $"FullName: {FirstName} {LastName}, Date of Birth: {BirthDate:D}, Address: {Address}";
 	}
 }
