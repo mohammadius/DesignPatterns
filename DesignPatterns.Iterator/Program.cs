@@ -4,7 +4,7 @@
 //   / \     / \
 //  4   5   6   7
 
-// in-order: 4 2 5 1 6 3 7
+// in-order (left -> root -> right): 4 2 5 1 6 3 7
 
 var root = new Node<int>(1,
 	new Node<int>(2,
