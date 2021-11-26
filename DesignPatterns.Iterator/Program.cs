@@ -14,7 +14,7 @@ var root = new Node<int>(1,
 
 foreach (var node in new BinaryTree<int>(root))
 {
-	Console.Write(node.Value);
+	Console.Write(node);
 	Console.Write(", ");
 }
 

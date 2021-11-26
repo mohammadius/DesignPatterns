@@ -4,16 +4,17 @@ public class InOrderIterator<T>
 {
 	private readonly Node<T> _root;
 	private bool _yieldedStart;
-	public Node<T> Current { get; set; }
+	public Node<T> CurrentNode { get; set; }
+	public T Current => CurrentNode.Value;
 
 	public InOrderIterator(Node<T> root)
 	{
 		_root = root;
-		Current = root;
+		CurrentNode = root;
 
-		while (Current.Left is not null)
+		while (CurrentNode.Left is not null)
 		{
-			Current = Current.Left;
+			CurrentNode = CurrentNode.Left;
 		}
 	}
 
@@ -25,34 +26,34 @@ public class InOrderIterator<T>
 			return true;
 		}
 
-		if (Current.Right is not null)
+		if (CurrentNode.Right is not null)
 		{
-			Current = Current.Right;
-			while (Current.Left is not null)
+			CurrentNode = CurrentNode.Right;
+			while (CurrentNode.Left is not null)
 			{
-				Current = Current.Left;
+				CurrentNode = CurrentNode.Left;
 			}
 
 			return true;
 		}
 
-		var parent = Current.Parent;
-		while (parent is not null && Current == parent.Right)
+		var parent = CurrentNode.Parent;
+		while (parent is not null && CurrentNode == parent.Right)
 		{
-			Current = parent;
+			CurrentNode = parent;
 			parent = parent.Parent;
 		}
 
-		Current = parent;
-		return Current is not null;
+		CurrentNode = parent;
+		return CurrentNode is not null;
 	}
 
 	public void Reset()
 	{
-		Current = _root;
-		while (Current.Left is not null)
+		CurrentNode = _root;
+		while (CurrentNode.Left is not null)
 		{
-			Current = Current.Left;
+			CurrentNode = CurrentNode.Left;
 		}
 		_yieldedStart = false;
 	}
